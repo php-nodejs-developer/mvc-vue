@@ -1,0 +1,19 @@
+{
+  "name": "web/project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ifmo-web",
+      "email": "ifmo-web@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Mountains\\" : "src/"
+    }
+  },
+  "require": {
+    "ext-pdo": "*"
+  }
+}
