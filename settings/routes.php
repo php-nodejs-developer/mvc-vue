@@ -17,13 +17,13 @@ return [
     ],
     [
         'path' => '/api/mountains',
-        'method' => 'POST',
-        'controller' => 'Mountains\Controllers\MountainsController::getMountains'
+        'method' => 'GET',
+        'controller' => 'Mountains\Controllers\MountainController::getMountains'
     ],
     [
         'path' => '/api/climb',
-        'method' => 'POST',
-        'controller' => 'Mountains\Controllers\MountainsController::getAllClimbs'
+        'method' => 'GET',
+        'controller' => 'Mountains\Controllers\ClimbController::getAllClimbs'
     ],
 ];
 

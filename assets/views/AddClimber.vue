@@ -1,13 +1,19 @@
 <template>
   <h2>Добавление нового альпиниста</h2>
-  <p v-if="message === 'ERROR'">
+  <p v-if="result.message === 'ERROR'">
     Добавить альпиниста не удалось.
     Попробуйте еще раз
   </p>
 
-  <p v-if="climber.id">
+  <p v-if="climber.id && result.message === 'SUCCESS'">
     Альпинист под номером {{climber.id}} добавлен.
-    Уникальный номер выслан на указанный e-mail.
+    <span v-if="result.sent">
+      Уникальный номер выслан на указанный e-mail.
+    </span>
+    <span v-else>
+      Уникальный номер не удалось выслать на указанный e-mail.
+      Запомните его.
+    </span>
   </p>
   <form @submit.prevent="addClimber">
     <input type="text" v-model="climber.name" placeholder="Введите имя">
@@ -27,7 +33,10 @@ export default {
         address: "",
         email: ""
       },
-      message: ""
+      result: {
+        message: "",
+        sent: false
+      }
     }
   },
   methods: {
@@ -44,14 +53,12 @@ export default {
       })
       .then(response => response.json())
       .then(json => {
+
         this.climber.id = json.id;
-        this.message = json.message;
+        this.result.message = json.message;
+        this.result.sent = json.sent;
       });
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -14,4 +14,7 @@ class MountainController
         $this->mountainDB = new MountainsDb();
     }
 
+    public function getMountains(){
+        echo json_encode($this->mountainDB->getAll());
+    }
 }

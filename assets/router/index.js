@@ -3,14 +3,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {
-        path: '/add',
-        component: () => import('../views/AddMountain')
-    },
-    {
-        path: '/edit',
-        component: () => import('../views/EditMountains')
-    },
-    {
         path: '/climber/add',
         component: () => import('../views/AddClimber')
     },
